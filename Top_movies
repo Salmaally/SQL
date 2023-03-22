@@ -1,0 +1,30 @@
+/* Put your data in here and query it! */
+CREATE TABLE top_movies(id integer primary key,name text,year integer,rating integer);
+
+INSERT INTO top_movies VALUES(1,'RED NOTICE',2021,1);
+INSERT INTO top_movies VALUES(2,'AVA',2020,2);
+INSERT INTO top_movies VALUES(3,'UNCHARTED',2022,2);
+INSERT INTO top_movies VALUES(4,'MAN FROM TORONTO',2022,3);
+INSERT INTO top_movies VALUES(5,'SPY KIDS',2011,4);
+INSERT INTO top_movies VALUES(6,'THE SLEEPOVER',2020,4);
+INSERT INTO top_movies VALUES(7,'ROCKY',1990,3);
+INSERT INTO top_movies VALUES(8,'LOVEBIRDS',2020,5);
+INSERT INTO top_movies VALUES(9,'BULLET TRAIN',2022,5);
+INSERT INTO top_movies VALUES(10,'CREED 3',2023,1);
+/*what are average,max,and min values in the data? */
+  SELECT avg(year) FROM top_movies WHERE year >=2000;
+  /* what about those numbers per category in data(using HAVING) ?*/
+   SELECT year FROM top_movies  GROUP BY year HAVING year >=2020;
+   /* what ways are there to group the data values that dont exist yet (using CASE)?*/
+   SELECT COUNT (*),
+   CASE
+   WHEN rating =1 THEN 'GREAT'
+   WHEN rating =2 THEN 'GOOD'
+   WHEN rating =3 THEN 'FINE'
+   ELSE'OKAY'
+   END as 'grade' FROM top_movies
+   GROUP BY 'grade';
+   /* what intresting ways are there to filter the data (using AND/OR)?*/
+   SELECT name,rating FROM top_movies WHERE name='AVA' AND rating=2;
+  SELECT name,rating FROM top_movies WHERE name='CREED 3' OR rating=1;
+   
