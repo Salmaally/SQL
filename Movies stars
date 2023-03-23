@@ -1,0 +1,17 @@
+/* Create table about the people and what they do here */
+CREATE TABLE stars(id integer primary key,name text,title_movie text, state text);
+INSERT INTO stars VALUES(1,'Blake Lively','Gossip girl','California');
+INSERT INTO stars Values(2,'Ryan Renolds', 'RED NOTICE','California');
+INSERT INTO stars VALUES (3,'Brad Pitt', 'MR & MRS smith','California');
+INSERT INTO stars VALUES (4,'Angelina Jolie','MR & MRS smith','California');
+CREATE TABLE couples(couple1_id integer,couple2_id integer);
+INSERT INTO couples VALUES(1,3);
+INSERT INTO couples VALUES (2,4);
+SELECT * FROM stars;
+SELECT * from couples;
+SELECT a.name,b.name
+FROM stars 
+JOIN couples as a
+ON a.id=stars.couple1_id
+JOIN couple2_id as b
+ON b.id=stars.couple2_id;
