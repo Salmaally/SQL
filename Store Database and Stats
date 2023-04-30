@@ -1,16 +1,19 @@
---Create a store database
-CREATE TABLE store(id integer primary key,name text,item text,prices integer,rating integer);
-INSERT INTO store VALUES (1,'shirts','clothing',20,2),
-INSERT INTO store VALUES (2,'pants','clothing',25,3),
-INSERT INTO store VALUES (3,'glasses','accesories',15,4),
-INSERT INTO store VALUES (4,'belt','accesories',18,5),
-INSERT INTO store VALUES (5,'jacket','clothing',22,6),
-INSERT INTO store VALUES (6,'blouse','clothing',30,1)
+,CREATE TABLE store(id integer primary key,name text,item text,prices integer,rating integer);
+INSERT INTO store VALUES
+(1,'shirts','clothing',20,2),
+(2,'pants','clothing',25,3),
+(3,'glasses','accesories',15,4),
+(4,'belt','accesories',18,5),
+(5,'jacket','clothing',22,6),
+(6,'blouse','clothing',30,1),
+(7,'hoodie','clothing',45,8),
+(8,'earings','accesories',35,7),
+(9,'abaya','clothing',200,10),
+(10,'necklace','clothing',100,9),
+(11,'joggers','clothing',60,12),
+(12,'bracelet','accessories',45,11),
+(13,'scarf','clothing',70,14),
+(14,'anklet','accessories',30,13),
+(15,'jeans','clothing',50,1)
 ;
---display database ordered by price.
-SELECT*FROM store
-ORDER BY prices asc;
---whats the avg price of items in clothing section? 
-SELECT AVG(clothing) "avg item of cloothing" price FROM store
-WHERE section = 'clothing'
-
+SELECT*FROM store ORDER BY prices
