@@ -12,19 +12,28 @@ INSERT INTO top_movies VALUES(8,'LOVEBIRDS',2020,5);
 INSERT INTO top_movies VALUES(9,'BULLET TRAIN',2022,5);
 INSERT INTO top_movies VALUES(10,'CREED 3',2023,1);
 /*what are average,max,and min values in the data? */
-  SELECT avg(year) FROM top_movies WHERE year >=2000;
-  /* what about those numbers per category in data(using HAVING) ?*/
-   SELECT year FROM top_movies  GROUP BY year HAVING year >=2020;
-   /* what ways are there to group the data values that dont exist yet (using CASE)?*/
-   SELECT COUNT (*),
-   CASE
-   WHEN rating =1 THEN 'GREAT'
-   WHEN rating =2 THEN 'GOOD'
-   WHEN rating =3 THEN 'FINE'
-   ELSE'OKAY'
-   END as 'grade' FROM top_movies
-   GROUP BY 'grade';
-   /* what intresting ways are there to filter the data (using AND/OR)?*/
-   SELECT name,rating FROM top_movies WHERE name='AVA' AND rating=2;
-  SELECT name,rating FROM top_movies WHERE name='CREED 3' OR rating=1;
-   
+  SELECT avg(year) FROM top_movies;
+ SELECT MIN(year)FROM top_movies;
+SELECT MAX(year) FROM top_movies;
+/* what about those numbers per category in the data (using HAVING)?*/
+SELECT year,AVG(year)as avg_year FROM top_movies
+GROUP BY year 
+HAVING AVG(year)>2017;
+SELECT year,MIN(year)as min_year FROM top_movies
+GROUP BY year 
+HAVING MIN(year)>1990;
+SELECT year,MAX(year)as max_year FROM top_movies
+GROUP BY year 
+HAVING MAX(year)>2020;
+/* what ways are there to group the data values that don't exist yet (using CASE)?*/
+SELECT COUNT(*),
+CASE 
+WHEN rating >1 THEN 'GREAT'
+WHEN rating >2 THEN 'GOOD'
+WHEN rating >3 THEN 'OKAY'
+ELSE 'NOT GREAT'
+END AS grade  FROM top_movies
+GROUP BY grade;
+/* what intresting ways are there to filter the data (using AND/OR)?*/
+SELECT year FROM top_movies WHERE( rating=1 OR year>2010);
+SELECT year FROM top_movies WHERE (rating=3 AND year>2020);
