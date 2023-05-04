@@ -1,4 +1,5 @@
-/* Put your data in here and query it! */
+#In this SQL code, I'm querying a database that's holding Top_movies data to answer questions about the data. 
+* Put your data in here and query it! */
 CREATE TABLE top_movies(id integer primary key,name text,year integer,rating integer);
 
 INSERT INTO top_movies VALUES(1,'RED NOTICE',2021,1);
