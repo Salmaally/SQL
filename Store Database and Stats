@@ -1,4 +1,5 @@
-,CREATE TABLE store(id integer primary key,name text,item text,prices integer,rating integer);
+#In this SQL code, I'm querying a database that's holding store data to answer questions about the data. 
+CREATE TABLE store(id integer primary key,name text,item text,prices integer,rating integer);
 INSERT INTO store VALUES
 (1,'shirts','clothing',20,2),
 (2,'pants','clothing',25,3),
