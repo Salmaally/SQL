@@ -1,4 +1,5 @@
-/* Create table about the people and what they do here */
+#In this SQL code, I'm querying a database that's holding Movie stars data to answer questions about the data. 
+* Create table about the people and what they do here */
 CREATE TABLE stars(id integer primary key,name text,title_movie text, state text);
 INSERT INTO stars VALUES(1,'Blake Lively','Gossip girl','California');
 INSERT INTO stars Values(2,'Ryan Renolds', 'RED NOTICE','California');
