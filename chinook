@@ -1,0 +1,11 @@
+--What is the average Millisecond for track?
+select avg(Milliseconds) from chinook.tracks;  
+--What's the list of track names in a playlist limit to 20 rows.
+select t.name,p.playlistid
+from chinook.tracks as t 
+join chinook.playlist_track as p on t.trackid=p.trackid
+--how many tracks in the playlist had the genre 'Rock'?
+select t.name,g.name
+from chinook.tracks as t 
+join chinook.genres as g on t.genreid=g.genreid
+where g.name ='Rock';
