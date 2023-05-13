@@ -3,9 +3,29 @@ select avg(Milliseconds) from chinook.tracks;
 --What's the list of track names in a playlist limit to 20 rows.
 select t.name,p.playlistid
 from chinook.tracks as t 
-join chinook.playlist_track as p on t.trackid=p.trackid
+join chinook.playlist_track as p on t.trackid=p.trackid;
 --how many tracks in the playlist had the genre 'Rock'?
 select t.name,g.name
 from chinook.tracks as t 
 join chinook.genres as g on t.genreid=g.genreid
 where g.name ='Rock';
+--whats the amount of tracks that have the genre metal order by track name.
+select count(*) ,name
+from chinook.tracks
+where genreid=3
+order by name;
+--what is the unique/distinct billingcity from invoices?
+select distinct billingcity from chinook.invoices;
+--what is the total quantity of invoice items?
+select sum(quantity) 
+from chinook.invoice_items;
+--How many tracks have more than the average miliseconds?
+select name,milliseconds
+from chinook.tracks
+where milliseconds > (select avg(Milliseconds) from chinook.tracks)
+order by milliseconds desc;
+--How many invoices were there in 20010?
+select count (*)
+from chinook.invoices
+where invoicedate BETWEEN'2010-01-01' AND '2O10-12-31'
+
