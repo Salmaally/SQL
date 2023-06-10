@@ -1,0 +1,25 @@
+--How many inactive players were at the game?
+select count(*)
+from nba.inactive_players as inactive
+join nba.game as game 
+on inactive.game_id=game.game_id;
+--How many active players are in the player table?
+select * from nba.player
+where is_active=1;
+--Gives relevant information about drafted players.
+select * from nba.draft_history;
+-- How many teams were still active in the 2000s and going up  and order them by year ascending.
+select * from nba.team_history
+where year_active_till>2000
+order by year_active_till asc;
+-- How many games had the season 1946?
+select game_id,season from nba.game_summary 
+where season=1946
+Group by game_id;
+--How many teams were in NYK as they're home court ?
+select * from nba.line_score 
+where team_abbreviation_home = 'NYK';
+--what is the avetage height of players?
+select avg(height) from common_player_info;
+--what is the max weight for players?
+select max(weight) from common_player_info;
